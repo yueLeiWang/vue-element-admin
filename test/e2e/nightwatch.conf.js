@@ -1,4 +1,5 @@
 require('babel-register')
+
 var config = require('../../config')
 
 // http://nightwatchjs.org/gettingstarted#settings-file
@@ -26,7 +27,6 @@ module.exports = {
         devServerURL: 'http://localhost:' + (process.env.PORT || config.dev.port)
       }
     },
-
     chrome: {
       desiredCapabilities: {
         browserName: 'chrome',
