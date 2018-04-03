@@ -1,3 +1,4 @@
+/*2018-4-3 wangyuelei*/
 'use strict'
 const chalk = require('chalk')
 const semver = require('semver')
