@@ -1,7 +1,8 @@
 //引入mockjs
 import Mock from 'mockjs';
+//表格数据
 const ExcelData = Mock.mock({
-  // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+  // 属性 list 的值是一个数组
   'list|10-50': [{
 	'id|+1': 1,
     'name': "@ctitle(2,15)",
