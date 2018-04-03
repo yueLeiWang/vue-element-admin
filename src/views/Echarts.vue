@@ -10,9 +10,11 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Echarts应用实例',
+      msg: 'Echarts应用实例'
     }
   },
+  computed: { 
+  },  
   methods: {
     drawLine(){
         // 基于准备好的dom，初始化echarts实例
@@ -34,7 +36,8 @@ export default {
     }
   },
   mounted(){
-    this.drawLine();  
+    this.drawLine();
+    console.log(this.$store.state.count)	
   }
 }
 </script>

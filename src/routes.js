@@ -4,6 +4,7 @@ import GDMap from './views/GDMap'
 import mockspmile from './views/mockspmile'
 import mytransfer from './views/mytransfer'
 import exportExcel from './views/exportExcel'
+import Vuexapplication from './views/Vuexapplication'
 import Edit from './views/Edit'
 let routes = [
     {
@@ -40,6 +41,11 @@ let routes = [
 		path:'/Edit',
 		name:'文本编辑',
 		component:Edit,
+	},
+	{
+		path:'/Vuexapplication',
+		name:'Vuex应用实例',
+		component:Vuexapplication,
 	}
 	
 ];

@@ -32,8 +32,12 @@
 				<span slot="title">exportExcel</span>
 			  </el-menu-item>
 			  <el-menu-item index="Edit">
-				<i class="el-icon-download"></i>
+				<i class="el-icon-document"></i>
 				<span slot="title">文本编辑器</span>
+			  </el-menu-item>
+			  <el-menu-item index="Vuexapplication">
+				<i class="el-icon-document"></i>
+				<span slot="title">Vuex应用实例</span>
 			  </el-menu-item>			  
 			</el-menu>  
 
