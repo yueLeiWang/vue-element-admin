@@ -43,13 +43,9 @@
 
 		  </el-aside>  
 		  <el-container>
-			<el-header style="height:200px;text-align: right; font-size: 12px;">
-				<el-carousel :interval="2000" type="card" height="200px">
-					<el-carousel-item v-for="item in banners" :key="item.imgUrl">
-					  <img :src="item.imgUrl">
-					</el-carousel-item>
-				</el-carousel>          
-			</el-header>			
+			<el-header class="headStyle">
+               Vue+Element项目实例			
+			</el-header>		
 			<el-main>	
 				<router-view></router-view>
 			</el-main>
@@ -59,23 +55,12 @@
 </template>
 
 <script>
- import luan from './assets/1.jpg'
- import mouse from './assets/2.jpg'
- import yellow from './assets/3.jpg'
- import blue from './assets/4.jpg'
 export default {
   name: 'app',
-
   data () {
     return {
       msg: '欢迎',
 	  activeIndex2: '/',
-	  banners: [
-              { imgUrl: luan },
-              { imgUrl: mouse },
-              { imgUrl: yellow },
-			  { imgUrl: blue }
-      ],
     }
   },
   methods: {
@@ -84,13 +69,13 @@ export default {
       }
   },
   mounted() {
-        this.$router.push({ path: this.activeIndex2 });
-		console.log(this.$router)
+     this.$router.push({ path: this.activeIndex2 });
   }  
 }
 </script>
 
 <style scoped>
+*{margin:0;padding:0}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -98,38 +83,25 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.headStyle{
+   text-align:center;background:#4c70e8;line-height:60px;font-size:20px;font-weight:600
+}
 .el-menu{
   background:#50bfff;
-  height:50px;
+  height:60px;
 }
 .el-menu-item{
   font-size:16px;
   font-weight:600;
-  height:50px;
-  line-height:50px;
+  height:60px;
+  line-height:60px;
 }
 .el-menu-item.is-active {
-    color: #fff;
+    color: #4c70e8;
 	border-bottom:none;
 }
 .el-menu--horizontal .el-menu-item{
   background:#50bfff;
   border-bottom:none;
 }
- .el-carousel__item img {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-	width:100%;
-    height:200px;
-    margin: 0;
-  }
-  
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-  
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
 </style>
