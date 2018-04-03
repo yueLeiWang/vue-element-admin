@@ -47,6 +47,7 @@ export default {
     }
   },
   methods: {
+     //数据获取
      getTest(){
 	    new Promise((resolve, reject) => {
 		    this.tableData=commditydata.data.foods;			
