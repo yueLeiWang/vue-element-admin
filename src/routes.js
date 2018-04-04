@@ -5,6 +5,7 @@ import mockspmile from './views/mockspmile'
 import mytransfer from './views/mytransfer'
 import exportExcel from './views/exportExcel'
 import Vuexapplication from './views/Vuexapplication'
+import complexTable from './views/complexTable'
 import Edit from './views/Edit'
 let routes = [
     {
@@ -17,6 +18,11 @@ let routes = [
       name: 'Echarts应用',
       component:Echarts,
     },
+    {
+      path: '/complexTable',
+      name: 'Table操作',
+      component:complexTable,
+    },	
     {
       path: '/GDMap',
       name: '高德地图',

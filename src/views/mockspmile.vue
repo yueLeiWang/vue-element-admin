@@ -4,7 +4,7 @@
 	 <el-table
       :data="tableData"
 	  border
-      style="width: 100%;margin:0 auto">
+      style="width:95%;margin:0 20px;">
       <el-table-column
 		align="center"
 		prop='id'

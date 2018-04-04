@@ -34,7 +34,12 @@
 			  <el-menu-item index="Vuexapplication">
 				<i class="el-icon-document"></i>
 				<span slot="title">Vuex应用实例</span>
+			  </el-menu-item>
+			  <el-menu-item index="complexTable">
+				<i class="el-icon-document"></i>
+				<span slot="title">Table操作</span>
 			  </el-menu-item>			  
+              			  
 			</el-menu>  
 
 		  </el-aside>  

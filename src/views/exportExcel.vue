@@ -1,10 +1,10 @@
 <template>
   <div class="hello">
-    <h1>{{msg}}<el-button @click="exportExcel" style="float:right">导出</el-button></h1>
+    <h1>{{msg}}<el-button @click="exportExcel" style="float:right;margin-right:40px;">导出</el-button></h1>
 	 <el-table
       :data="tableData"
 	  border
-      style="width: 100%;margin:0 auto">
+      style="width: 95%;margin:0 20px">
       <el-table-column
 		align="center"
 		prop='id'

@@ -8,17 +8,21 @@
 </template>
 
 <script>
+import { fetchList, fetchPv, createArticle, updateArticle } from '../api/article'
 export default {
   name: 'hello',
   data () {
     return {
       msg: 'Vuex应用实例',
-	  getCount:this.$store.state.count
+	  getCount:this.$store.state.count,	  
     }
   },
   computed: { 
   },  
   methods: {
+    getList(){
+	  console.log('start')
+	},
     add(){
 	   this.$store.commit('increment')
 	   this.getCount=this.$store.state.count
@@ -29,7 +33,7 @@ export default {
 	} 	
   },
   mounted(){
-	
+	this.getList()
   }
 }
 </script>
