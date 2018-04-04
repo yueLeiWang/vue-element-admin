@@ -1,14 +1,14 @@
 <template>
   <div class="hello">
     <h1>{{msg}}</h1>
-          <div ref="gdMap" class="mapWrap">             
-          </div>
-          <div class="buttonWrap">
-            <input type="button" class="mapButton" value="绘制多边形" ref="polygon"/>
-            <input type="button" class="mapButton" value="绘制圆" ref="circle"/>
-            <button type="button" class="mapButton"  @click="saveOverlays">保存</button>
-            <button class="mapButton"  @click="closeMap">取消</button>			
-          </div> 		
+          <div ref="gdMap" class="mapWrap"> 
+			  <div class="buttonWrap">
+				<input type="button" class="mapButton" value="绘制多边形" ref="polygon"/>
+				<input type="button" class="mapButton" value="绘制圆" ref="circle"/>
+				<button type="button" class="mapButton"  @click="saveOverlays">保存</button>
+				<button class="mapButton"  @click="closeMap">取消</button>			
+			  </div> 		  
+          </div>		
           <div class="pickerBox">
             <div class="headerWrap">
             <h3>服务范围信息<span v-if="showPromit" style="color:red;margin-left:30px;">{{promitInf}}</span></h3>
@@ -265,11 +265,10 @@ export default {
   float: left;
 }
 .buttonWrap {
-  position: absolute;
+  position:absolute;
   z-index: 9999;
-  //bottom: 45%;
-  top:200px;
-  right: 32%;
+  margin-top:20px;
+  right:20px;
 }
 .pickerBox {
   float: left;

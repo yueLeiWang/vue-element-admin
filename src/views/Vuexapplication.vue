@@ -21,7 +21,7 @@ export default {
   },  
   methods: {
     getList(){
-	  console.log('start')
+	  
 	},
     add(){
 	   this.$store.commit('increment')
