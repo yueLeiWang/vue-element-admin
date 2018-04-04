@@ -1,9 +1,11 @@
 import Mock from 'mockjs'
-import articleAPI from './article'
-// 文章相关
-Mock.mock(/\/article\/list/, 'get', articleAPI.getList)
-Mock.mock(/\/article\/detail/, 'get', articleAPI.getArticle)
-Mock.mock(/\/article\/pv/, 'get', articleAPI.getPv)
-Mock.mock(/\/article\/create/, 'post', articleAPI.createArticle)
-Mock.mock(/\/article\/update/, 'post', articleAPI.updateArticle)
+import tabledataAPI from './tabledata'
+import exceldataAPI from './exceldata'
+// 表格相关
+Mock.mock(/\/tabledata\/list/, 'get', tabledataAPI.getList)
+Mock.mock(/\/tabledata\/create/, 'post', tabledataAPI.createTableData)
+Mock.mock(/\/tabledata\/update/, 'post', tabledataAPI.updateTableData)
+//excelTableData
+Mock.mock(/\/exceldata\/list/, 'get', exceldataAPI.getList)
+
 export default Mock

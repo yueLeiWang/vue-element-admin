@@ -46,7 +46,8 @@
 </template>
 
 <script>
-import exceldata from "@/mock/data/exceldata";
+//import exceldata from "@/mock/data/exceldata";
+import { fetchList } from '@/api/exceldata'
 export default {
   data () {
     return {
@@ -57,12 +58,14 @@ export default {
   methods: {
      //数据获取
      getTest(){
-	    new Promise((resolve, reject) => {
-		    this.tableData=exceldata.ExcelData.list;			
-		}).catch(err=>{
-		  console.log(err)
-		})
-
+	    //new Promise((resolve, reject) => {
+		    //this.tableData=exceldata.ExcelData.list;			
+		//}).catch(err=>{
+		  //console.log(err)
+		//})
+	  fetchList().then(response => {
+		this.tableData = response.data.items
+	  })
 	 },
 	 //导出操作
 	 exportExcel(){	      

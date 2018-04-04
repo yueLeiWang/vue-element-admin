@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { fetchList, fetchPv, createArticle, updateArticle } from '@/api/article'
+import { fetchList, createTableData, updateTableData } from '@/api/tabledata'
 import util from "@/utils/date";
 export default {
   name: 'complexTable',
@@ -153,7 +153,7 @@ export default {
 		  this.temp.reviewer='管理员'
 		  var nowdatetime=util.formatDate.format( new Date(),"yyyy-MM-dd hh:mm:ss");
 		  this.temp.dateTime=nowdatetime
-          createArticle(this.temp).then(() => {
+          createTableData(this.temp).then(() => {
             this.list.unshift(this.temp)
             this.dialogFormVisible = false
             this.$notify({
@@ -179,7 +179,7 @@ export default {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
           const tempData = Object.assign({}, this.temp)
-          updateArticle(tempData).then(() => {
+          updateTableData(tempData).then(() => {
             for (const v of this.list) {
               if (v.id === this.temp.id) {
                 const index = this.list.indexOf(v)
@@ -207,12 +207,6 @@ export default {
       })
       const index = this.list.indexOf(row)
       this.list.splice(index, 1)
-    },
-	//没有应用
-    handleFetchPv() {
-      fetchPv().then(response => {
-         console.log(response.data.pvData)
-      })
     }
   }
 }

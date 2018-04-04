@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { fetchList, fetchPv, createArticle, updateArticle } from '../api/article'
 export default {
   name: 'hello',
   data () {
