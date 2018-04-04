@@ -14,7 +14,7 @@ let routes = [
     },
     {
       path: '/Echarts',
-      name: '标签页',
+      name: 'Echarts应用',
       component:Echarts,
     },
     {
@@ -39,7 +39,7 @@ let routes = [
 	},
 	{
 		path:'/Edit',
-		name:'文本编辑',
+		name:'文本编辑器',
 		component:Edit,
 	},
 	{

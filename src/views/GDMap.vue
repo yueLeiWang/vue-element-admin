@@ -267,7 +267,8 @@ export default {
 .buttonWrap {
   position: absolute;
   z-index: 9999;
-  bottom: 45%;
+  //bottom: 45%;
+  top:200px;
   right: 32%;
 }
 .pickerBox {

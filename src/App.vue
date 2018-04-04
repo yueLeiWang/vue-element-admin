@@ -7,10 +7,6 @@
 			  class="el-menu-vertical-demo"
 			  @select="handleSelect"
 			  >
-			  <el-menu-item index="/">	    
-				<i class="el-icon-menu"></i>
-				<span slot="title">项目首页</span>		   
-			  </el-menu-item>
 			  <el-menu-item index="Echarts">
 				<i class="el-icon-document"></i>
 				<span slot="title">Echarts</span>
@@ -44,10 +40,11 @@
 		  </el-aside>  
 		  <el-container>
 			<el-header class="headStyle">
-               Vue+Element项目实例			
+               Vue+Element项目实例               			   
 			</el-header>		
-			<el-main>	
-				<router-view></router-view>
+			<el-main >
+                <tab-bar style="position:relative;width:100%;margin-left:-0px;background:#FFF;margin-top:2px;"></tab-bar>			
+				<router-view style="overflow-y:hidden;"></router-view>
 			</el-main>
 		  </el-container>
 		</el-container>    
@@ -55,7 +52,9 @@
 </template>
 
 <script>
+import TabBar from './components/TabBar';
 export default {
+  components: { TabBar },
   name: 'app',
   data () {
     return {
@@ -84,10 +83,10 @@ export default {
   color: #2c3e50;
 }
 .headStyle{
-   text-align:center;background:#4c70e8;line-height:60px;font-size:20px;font-weight:600
+   text-align:center;background:#fff;line-height:60px;font-size:20px;font-weight:600
 }
 .el-menu{
-  background:#50bfff;
+  background-color: rgb(238, 241, 246);;
   height:60px;
 }
 .el-menu-item{
@@ -101,7 +100,6 @@ export default {
 	border-bottom:none;
 }
 .el-menu--horizontal .el-menu-item{
-  background:#50bfff;
   border-bottom:none;
 }
 </style>
