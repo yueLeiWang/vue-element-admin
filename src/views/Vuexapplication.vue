@@ -13,7 +13,7 @@ export default {
   data () {
     return {
       msg: 'Vuex应用实例',
-	  getCount:this.$store.state.count,	  
+	  getCount:this.$store.state.count  
     }
   },
   computed: { 

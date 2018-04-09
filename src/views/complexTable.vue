@@ -30,7 +30,7 @@
       </el-table-column>
       <el-table-column align="center" label="日期" prop="dateTime">
       </el-table-column>	  
-      <el-table-column align="center" label="actions" width="300" class-name="small-padding fixed-width">
+      <el-table-column align="center" label="操作" width="300" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">编辑</el-button>
           <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>

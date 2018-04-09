@@ -46,7 +46,9 @@
 </template>
 
 <script>
+//直接用mockjs调用数据
 //import exceldata from "@/mock/data/exceldata";
+//用axios封装api调用数据
 import { fetchList } from '@/api/exceldata'
 export default {
   data () {
@@ -58,14 +60,16 @@ export default {
   methods: {
      //数据获取
      getTest(){
+	    //直接用mockjs调用数据
 	    //new Promise((resolve, reject) => {
 		    //this.tableData=exceldata.ExcelData.list;			
 		//}).catch(err=>{
 		  //console.log(err)
 		//})
-	  fetchList().then(response => {
-		this.tableData = response.data.items
-	  })
+		//用axios封装api调用数据
+		fetchList().then(response => {
+		   this.tableData = response.data.items
+		})
 	 },
 	 //导出操作
 	 exportExcel(){	      
