@@ -1,7 +1,7 @@
 <template>
   <div class="indexWrap" >
 	<my-transfer :options="options" :title='title' :showContentOne='valueType' :moveButtonStyle='buttonstlye' :ThreeShow='Threeshow' :titleOne='titleOne' :titleTwo='titleTwo' :titleThree='titleThree' @projectOneValue="getvalueOne" @projectTwoValue="getvalueTwo" @projectThreeValue="getvalueThree"></my-transfer>
-    <div style="">
+    <div>
 	   <down-time @time-end="message = '倒计时结束'" :endTime='endTime'></down-time>
 	</div>
 	
