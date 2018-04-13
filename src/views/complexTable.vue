@@ -109,6 +109,7 @@ export default {
     this.getList()
   },
   methods: {
+    //element-ui中自定义表头
     renderHeader (h) {
       return [h('p', {}, ['名称']),h('p', {style: 'color:red;font-size:12px;'}, ['随机生成'])]
     },  

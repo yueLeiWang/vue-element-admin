@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'hello',
+  name: 'vuexapplication',
   data () {
     return {
       msg: 'Vuex应用实例',

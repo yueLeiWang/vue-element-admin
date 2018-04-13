@@ -1,16 +1,23 @@
 <template>
   <div class="indexWrap" >
 	<my-transfer :options="options" :title='title' :showContentOne='valueType' :moveButtonStyle='buttonstlye' :ThreeShow='Threeshow' :titleOne='titleOne' :titleTwo='titleTwo' :titleThree='titleThree' @projectOneValue="getvalueOne" @projectTwoValue="getvalueTwo" @projectThreeValue="getvalueThree"></my-transfer>
+    <div style="">
+	   <down-time @time-end="message = '倒计时结束'" :endTime='endTime'></down-time>
+	</div>
+	
   </div>
  
 </template>
 
 <script>
 import MyTransfer from '../components/MyTransfer';
+import DownTime from '../components/DownTime';
 export default {
-  components: { MyTransfer },
+  components: { MyTransfer,DownTime},
   data () {
     return {
+		message : '正在倒计时',
+		endTime : '2018-04-20 10:06:00',	
        options:[
 　　　　　　{account: '项目组1',id:'1'},
 　　　　　　{account: '项目组2',id:'2'},
@@ -66,7 +73,9 @@ export default {
 <style scoped>
 .indexWrap{
 	font-weight: normal;
-    float:left;	
+    float:left;
+    padding:20px;
+    margin:0 250px;	
 }
 
 </style>

@@ -57,7 +57,7 @@
 
 <script>
 export default {
-  name: 'hello',
+  name: 'GDMap',
   data () {
     return {
       msg: '高德地图实例',

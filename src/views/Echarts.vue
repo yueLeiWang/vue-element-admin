@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'hello',
+  name: 'Echarts',
   data () {
     return {
       msg: 'Echarts应用实例'
