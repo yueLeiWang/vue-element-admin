@@ -16,7 +16,7 @@ let routes = [
     {
       path: '/Echarts',
       name: 'Echarts应用',
-      component:Echarts,
+      component:Echarts	  
     },
     {
       path: '/complexTable',

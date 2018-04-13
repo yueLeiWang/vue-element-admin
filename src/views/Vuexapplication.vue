@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="app-container">
     <h1>{{msg}}</h1>
     <p>{{ getCount }}</p>
 	<el-button  @click="add">+1</el-button>
@@ -19,8 +19,7 @@ export default {
   computed: { 
   },  
   methods: {
-    getList(){
-	  
+    getList(){   		  
 	},
     add(){
 	   this.$store.commit('increment')
@@ -32,7 +31,6 @@ export default {
 	} 	
   },
   mounted(){
-	this.getList()
   }
 }
 </script>

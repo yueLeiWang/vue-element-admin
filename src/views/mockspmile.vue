@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="app-container">
     <h1>{{msg}}</h1>
 	 <el-table
       :data="tableData"

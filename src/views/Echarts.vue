@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="app-container">
     <h1>{{msg}}</h1>
 	<div id="myChart" :style="{width: '800px', height: '500px'}"></div>
   </div>
@@ -36,8 +36,7 @@ export default {
     }
   },
   mounted(){
-    this.drawLine();
-    console.log(this.$store.state.count)	
+    this.drawLine();	
   }
 }
 </script>

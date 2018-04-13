@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="app-container">
     <h1>{{msg}}</h1>
           <div ref="gdMap" class="mapWrap"> 
 			  <div class="buttonWrap">

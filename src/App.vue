@@ -38,11 +38,9 @@
 			  <el-menu-item index="complexTable">
 				<i class="el-icon-document"></i>
 				<span slot="title">Table操作</span>
-			  </el-menu-item>			  
-              			  
-			</el-menu>  
-
-		  </el-aside>  
+			  </el-menu-item>			                			  
+			</el-menu>
+		  </el-aside> 		  
 		  <el-container>
 			<el-header class="headStyle">
                Vue+Element项目实例               			   
@@ -64,7 +62,7 @@ export default {
   data () {
     return {
       msg: '欢迎',
-	  activeIndex2: '/',
+	  activeIndex2: '/'	  
     }
   },
   methods: {
@@ -74,11 +72,13 @@ export default {
   },
   mounted() {
      this.$router.push({ path: this.activeIndex2 });
+	 
   }  
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+@import './styles/index.scss'; // 全局自定义的css样式
 *{margin:0;padding:0}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

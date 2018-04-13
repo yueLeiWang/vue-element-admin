@@ -19,7 +19,7 @@
           <span>{{scope.row.id}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="名称" prop="title">
+      <el-table-column align="center" label="名称" prop="title" :render-header="renderHeader">
       </el-table-column>
       <el-table-column  align="center" label="作者">
         <template slot-scope="scope">
@@ -109,6 +109,9 @@ export default {
     this.getList()
   },
   methods: {
+    renderHeader (h) {
+      return [h('p', {}, ['名称']),h('p', {style: 'color:red;font-size:12px;'}, ['随机生成'])]
+    },  
     getList() {
       this.listLoading = true
       fetchList(this.listQuery).then(response => {
@@ -213,5 +216,4 @@ export default {
 </script>
 <style scoped>
 .filter-container{margin-bottom:20px;margin-top:20px;float:left;margin-left:20px;}
-
 </style>

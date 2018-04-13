@@ -1,6 +1,9 @@
 <template>
-  <div class="hello">
-    <h1>{{msg}}<el-button @click="exportExcel" style="float:right;margin-right:40px;">导出</el-button></h1>
+  <div class="app-container">
+    <div style="padding-bottom:20px;">
+	    <span style="font-size:20px;font-weight:600;">{{msg}}</span>
+		<el-button @click="exportExcel" style="float:right;margin-right:40px;">导出</el-button>
+	</div>
 	 <el-table
       :data="tableData"
 	  border
