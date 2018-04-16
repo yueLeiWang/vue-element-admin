@@ -21,7 +21,7 @@
 			  </el-menu-item>
 			  <el-menu-item index="mytransfer">
 				<i class="el-icon-setting"></i>
-				<span slot="title">mytransfer</span>
+				<span slot="title">自定义组件</span>
 			  </el-menu-item>
 			  <el-menu-item index="exportExcel">
 				<i class="el-icon-download"></i>

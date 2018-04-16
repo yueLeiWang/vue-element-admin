@@ -1,8 +1,14 @@
 <template>
   <div class="indexWrap" >
-	<my-transfer :options="options" :title='title' :showContentOne='valueType' :moveButtonStyle='buttonstlye' :ThreeShow='Threeshow' :titleOne='titleOne' :titleTwo='titleTwo' :titleThree='titleThree' @projectOneValue="getvalueOne" @projectTwoValue="getvalueTwo" @projectThreeValue="getvalueThree"></my-transfer>
-    <div>
-	   <down-time @time-end="message = '倒计时结束'" :endTime='endTime'></down-time>
+	
+	
+     <div>
+	   <h1>简单穿棱框组件</h1><br/><br/>
+	   <my-transfer :options="options" :title='title' :showContentOne='valueType' :moveButtonStyle='buttonstlye' :ThreeShow='Threeshow' :titleOne='titleOne' :titleTwo='titleTwo' :titleThree='titleThree' @projectOneValue="getvalueOne" @projectTwoValue="getvalueTwo" @projectThreeValue="getvalueThree"></my-transfer>
+	   <h1>简单倒计时组件</h1><br/><br/>
+	   <down-time @time-end="message = '倒计时结束'" :endTime='endTime'></down-time><br/><br/><br/><br/><br/>
+	   <h1>简单Tabs组件</h1><br/><br/>
+	   <self-tabs :tabsoptions="options1" :boxoptions="options2"></self-tabs>
 	</div>
 	
   </div>
@@ -12,18 +18,34 @@
 <script>
 import MyTransfer from '../components/MyTransfer';
 import DownTime from '../components/DownTime';
+import SelfTabs from '../components/Selftabs';
 export default {
-  components: { MyTransfer,DownTime},
+  components: { MyTransfer,DownTime,SelfTabs},
   data () {
     return {
 		message : '正在倒计时',
-		endTime : '2018-04-20 10:06:00',	
+		endTime : '2018-05-01 10:00:00',	
        options:[
 　　　　　　{account: '项目组1',id:'1'},
 　　　　　　{account: '项目组2',id:'2'},
 　　　　　　{account: '项目组3',id:'3'},
 　　　　　　{account: '项目组4',id:'4'},
 　　　　　　{account: '项目组5',id:'5'},
+　　　　],
+       options1:[
+　　　　　　{name: '项目组1'},
+			{name: '项目组2'},
+			{name: '项目组3'},
+			{name: '项目组4'},
+			{name: '项目组5'}			
+　　　　],
+       options2:[
+　　　　　　{name: '内容1'},
+			{name: '内容2'},
+			{name: '内容3'},
+			{name: '内容4'},
+			{name: '内容5'}
+
 　　　　],
 		titleOne:'读',
 		titleTwo:'写',

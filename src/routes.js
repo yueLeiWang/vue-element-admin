@@ -35,7 +35,7 @@ let routes = [
     },
 	{
 		path:'/mytransfer',
-		name:'自定义穿棱框',
+		name:'自定义组件',
 		component:mytransfer,
 	},
 	{

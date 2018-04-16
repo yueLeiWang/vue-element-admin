@@ -199,7 +199,7 @@
 
 <style scoped>
  .mytransWrap{
-    width:100%;float:left;
+    width:100%;float:left;margin-bottom:50px;
  }
  .dataSrc{
 	height:360px;width:98%;margin-top:10px; 
