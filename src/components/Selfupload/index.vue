@@ -85,16 +85,15 @@
 			});		   
 		   return;
 		} 
-        //总大小
-        this.size = this.size + file.size;
-        //判断是否为图片文件
-		
+        //判断是否为图片文件		
         if (file.type.indexOf('image') == -1) {
 			this.$message({
 			  type: "warning",
 			  message: "暂不支持此类文件上传!"
 			});
         } else {
+		  //总大小
+		  this.size = this.size + file.size;		
 		  let reader = new FileReader();
 		  let image = new Image();
 		  let _this=this;
