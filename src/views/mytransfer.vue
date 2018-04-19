@@ -1,14 +1,14 @@
 <template>
-  <div class="indexWrap" >
-	
-	
+  <div class="indexWrap" >	
      <div>
 	   <h1>简单穿棱框组件</h1><br/><br/>
 	   <my-transfer :options="options" :title='title' :showContentOne='valueType' :moveButtonStyle='buttonstlye' :ThreeShow='Threeshow' :titleOne='titleOne' :titleTwo='titleTwo' :titleThree='titleThree' @projectOneValue="getvalueOne" @projectTwoValue="getvalueTwo" @projectThreeValue="getvalueThree"></my-transfer>
 	   <h1>简单倒计时组件</h1><br/><br/>
 	   <down-time @time-end="message = '倒计时结束'" :endTime='endTime'></down-time><br/><br/><br/><br/><br/>
 	   <h1>简单Tabs组件</h1><br/><br/>
-	   <self-tabs :tabsoptions="options1" :boxoptions="options2"></self-tabs>
+	   <self-tabs style="margin-bottom:50px;"  :tabsoptions="options1" :boxoptions="options2"></self-tabs>
+	   <h1>简单upload组件</h1><br/><br/>
+	   <self-upload :limit="limit"></self-upload>
 	</div>
 	
   </div>
@@ -19,12 +19,14 @@
 import MyTransfer from '../components/MyTransfer';
 import DownTime from '../components/DownTime';
 import SelfTabs from '../components/Selftabs';
+import SelfUpload from '../components/Selfupload';
 export default {
-  components: { MyTransfer,DownTime,SelfTabs},
+  components: { MyTransfer,DownTime,SelfTabs,SelfUpload},
   data () {
     return {
-		message : '正在倒计时',
-		endTime : '2018-05-01 10:00:00',	
+	   message : '正在倒计时',
+	   endTime : '2018-05-01 10:00:00',
+	   limit:'3',		
        options:[
 　　　　　　{account: '项目组1',id:'1'},
 　　　　　　{account: '项目组2',id:'2'},
@@ -40,11 +42,11 @@ export default {
 			{name: '项目组5'}			
 　　　　],
        options2:[
-　　　　　　{name: '内容1'},
-			{name: '内容2'},
-			{name: '内容3'},
-			{name: '内容4'},
-			{name: '内容5'}
+　　　　　　{title: '标题1',content:'内容1内容1内容1内容1内容1内容1'},
+			{title: '标题2',content:'内容2内容2内容2内容2内容2内容2'},
+			{title: '标题3',content:'内容3内容3内容3内容3内容3内容3'},
+			{title: '标题4',content:'内容4内容4内容4内容4内容4内容4'},
+			{title: '标题5',content:'内容5内容5内容5内容5内容5内容5'}
 
 　　　　],
 		titleOne:'读',

@@ -6,7 +6,10 @@
     </ul>
    </div>
    <div class="tab_box">
-    <div v-for="option in boxoptions" ref="box">{{option.name}}</div>
+    <div v-for="option in boxoptions" ref="box">
+	 <h1>{{option.title}}</h1>
+	 {{option.content}}
+	</div>
    </div>
   </div>
  </template>
@@ -35,17 +38,21 @@
     methods: {
 	   init () {
 		  for(var a=0;a<this.$refs.tabs.length;a++){
-			  this.$refs.box[a].className='hide';
 			  this.$refs.tabs[a].className='';		    
-		  }	   
+		  }
+		  for(var b=0;b<this.$refs.box.length;b++){
+			  this.$refs.box[b].className='hide';		    
+		  }		  
 	       this.$refs.tabs[0].className='selected'
 		   this.$refs.box[0].className='';
 	   },
 	   liClick(index){
 	      for(var a=0;a<this.$refs.tabs.length;a++){
-			  this.$refs.box[a].className='hide';
 			  this.$refs.tabs[a].className='';		    
 		  }
+		  for(var b=0;b<this.$refs.box.length;b++){
+			  this.$refs.box[b].className='hide';		    
+		  }			  
 		  this.$refs.box[index].className='';
 		  this.$refs.tabs[index].className='selected'
 	   }
