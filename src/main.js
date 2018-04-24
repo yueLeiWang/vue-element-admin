@@ -17,6 +17,7 @@ import '../static/UE/ueditor.parse.min.js'
 //定义全局变量
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
+Vue.prototype.Url = 'https://github.com/yueLeiWang/vue-element-admin'
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 // 按下标删除数组的对应元素

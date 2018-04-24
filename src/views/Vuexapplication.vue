@@ -4,24 +4,36 @@
     <p>{{ getCount }}</p>
 	<el-button  @click="add">+1</el-button>
 	<el-button  @click="dec">-1</el-button>
-	<div v-for="item in testdata">{{item.name}}<el-checkbox  @change="rowChange(item)" v-model="item.commidySelect" ></el-checkbox></div>
+	<h1>时间转化</h1>
+	<p>{{time}}</p>
+	<p>{{timeString}}</p>
+	<div style="text-indent:2em;display:inline-block;width:140px;height:25px;line-height:20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">jjjjjjjjjjjjjjjjjjjjj333333333333333333333333333333333333333333333333333333333333333333333333333333</div>
   </div>
 </template>
 
 <script>
+import dateformat from "@/utils/date";
 export default {
   name: 'vuexapplication',
   data () {
     return {
       msg: 'Vuex应用实例',
 	  getCount:this.$store.state.count,
-      testdata:[{id:'1',name:'aaa'}]	  
+      time:'',
+      timeString:''	  
     }
   },
   computed: { 
   },  
   methods: {
-    getList(){   		  
+    getList(){
+      var time=dateformat.formatDate.format(
+              new Date(),
+              "yyyy-MM-dd hh:mm:ss"
+           );
+	  var string=dateformat.formatDate.parse('2018-04-24 10:26:12','yyyy-MM-dd hh:mm:ss')
+	  this.time=time
+	  this.timeString=string	  
 	},
 	rowChange(item){
 	  console.log(item)
@@ -33,9 +45,10 @@ export default {
     dec(){
 	   this.$store.commit('deccrement')
 	   this.getCount=this.$store.state.count
-	} 	
+	}	
   },
   mounted(){
+    this.getList()
   }
 }
 </script>
