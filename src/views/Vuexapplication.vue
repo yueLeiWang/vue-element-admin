@@ -7,7 +7,6 @@
 	<h1>时间转化</h1>
 	<p>{{time}}</p>
 	<p>{{timeString}}</p>
-	<div style="text-indent:2em;display:inline-block;width:140px;height:25px;line-height:20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">jjjjjjjjjjjjjjjjjjjjj333333333333333333333333333333333333333333333333333333333333333333333333333333</div>
   </div>
 </template>
 
