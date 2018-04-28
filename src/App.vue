@@ -38,7 +38,11 @@
 			  <el-menu-item index="complexTable">
 				<i class="el-icon-document"></i>
 				<span slot="title">Table操作</span>
-			  </el-menu-item>			                			  
+			  </el-menu-item>
+			  <el-menu-item index="notes">
+				<i class="el-icon-document"></i>
+				<span slot="title">项目笔记</span>
+			  </el-menu-item>			  
 			</el-menu>
 		  </el-aside> 		  
 		  <el-container>

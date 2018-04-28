@@ -9,6 +9,8 @@
 	   <self-tabs style="margin-bottom:50px;"  :tabsoptions="options1" :boxoptions="options2"></self-tabs>
 	   <h1>简单upload组件</h1><br/><br/>
 	   <self-upload :limit="limit"></self-upload>
+	   <h1>简单TimePicker(半点)组件</h1><br/><br/>
+	   <self-time-picker :mintime='mintime' :maxtime="maxtime" :width="navHeight" @changepicker="changepicker"></self-time-picker>
 	</div>
 	
   </div>
@@ -20,13 +22,17 @@ import MyTransfer from '../components/MyTransfer';
 import DownTime from '../components/DownTime';
 import SelfTabs from '../components/Selftabs';
 import SelfUpload from '../components/Selfupload';
+import SelfTimePicker from '../components/SelfTimePicker';
 export default {
-  components: { MyTransfer,DownTime,SelfTabs,SelfUpload},
+  components: { MyTransfer,DownTime,SelfTabs,SelfUpload,SelfTimePicker},
   data () {
     return {
 	   message : '正在倒计时',
 	   endTime : '2018-05-01 10:00:00',
-	   limit:'3',		
+	   mintime:'00:00',
+	   maxtime:'23:30',
+	   limit:'3',
+       navHeight:'160',	   
        options:[
 　　　　　　{account: '项目组1',id:'1'},
 　　　　　　{account: '项目组2',id:'2'},
@@ -76,6 +82,9 @@ export default {
 	},
     getvalueThree(value){
 	   console.log('无权限:',value)
+	},
+    changepicker(val){
+	   console.log(val)
 	}	
   },
   mounted() {

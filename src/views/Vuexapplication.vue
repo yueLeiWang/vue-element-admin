@@ -19,7 +19,7 @@ export default {
       msg: 'Vuex应用实例',
 	  getCount:this.$store.state.count,
       time:'',
-      timeString:''	  
+      timeString:''
     }
   },
   computed: { 

@@ -58,7 +58,7 @@
 				</tr>																	
 			</table> 
 		</form>	
-       <el-button type="primary"  @click="projectsubmit">确定</el-button>		
+       <el-button type="primary"  @click="projectsubmit" style="margin-left:170px;">确定</el-button>		
 	</div>
 </template>
 
@@ -199,7 +199,7 @@
 
 <style scoped>
  .mytransWrap{
-    width:100%;float:left;margin-bottom:50px;
+    width:100%;margin-bottom:50px;
  }
  .dataSrc{
 	height:360px;width:98%;margin-top:10px; 

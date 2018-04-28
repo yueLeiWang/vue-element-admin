@@ -1,7 +1,4 @@
-@import './element-ui.scss';
-@import './mixin.scss';
-//npm intall sass-loader --save;
-//npm install node-sass --save;
+//公共样式调整
 body {
   min-width: 960px;
   -moz-osx-font-smoothing: grayscale;
@@ -11,10 +8,10 @@ body {
   background:#fff;
   font-size:14px;
 }
-//公共样式调整
 .el-main{padding:20px 0px;}
 .app-container{padding:20px;}
 .el-table{margin-top:20px !important;}
+
 
 
 

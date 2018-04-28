@@ -6,6 +6,7 @@ import mytransfer from './views/mytransfer'
 import exportExcel from './views/exportExcel'
 import Vuexapplication from './views/Vuexapplication'
 import complexTable from './views/complexTable'
+import notes from './views/notes'
 import Edit from './views/Edit'
 let routes = [
     {
@@ -52,6 +53,11 @@ let routes = [
 		path:'/Vuexapplication',
 		name:'Vuex应用实例',
 		component:Vuexapplication,
+	},
+	{
+		path:'/notes',
+		name:'学习笔记',
+		component:notes,
 	}
 	
 ];
