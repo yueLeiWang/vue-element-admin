@@ -11,6 +11,9 @@
 	   <self-upload :limit="limit"></self-upload>
 	   <h1>简单TimePicker(半点)组件</h1><br/><br/>
 	   <self-time-picker :mintime='mintime' :maxtime="maxtime" :width="navHeight" @changepicker="changepicker"></self-time-picker>
+	   <h1>简单组件self-input-number(只能输入整数)</h1><br/><br/>
+	   <self-input-number  v-model="testval" :min='1' :max='5' :width="120" @testchange="changeNumber"></self-input-number><br/><br/>
+       <self-input-number  v-model="testval1" :min='2'  @testchange="changeNumber1"></self-input-number>	   
 	</div>
 	
   </div>
@@ -23,10 +26,13 @@ import DownTime from '../components/DownTime';
 import SelfTabs from '../components/Selftabs';
 import SelfUpload from '../components/Selfupload';
 import SelfTimePicker from '../components/SelfTimePicker';
+import SelfInputNumber from '../components/selfInputNumber';
 export default {
-  components: { MyTransfer,DownTime,SelfTabs,SelfUpload,SelfTimePicker},
+  components: { MyTransfer,DownTime,SelfTabs,SelfUpload,SelfTimePicker,SelfInputNumber},
   data () {
     return {
+	   testval:1,
+	   testval1:1,
 	   message : '正在倒计时',
 	   endTime : '2018-05-01 10:00:00',
 	   mintime:'00:00',
@@ -85,6 +91,12 @@ export default {
 	},
     changepicker(val){
 	   console.log(val)
+	},
+    changeNumber(val){
+		console.log(val,'1')
+	},
+    changeNumber1(val){
+		console.log(val,'2')
 	}	
   },
   mounted() {

@@ -36,7 +36,7 @@
 	  </div>	
 	</div>
 	<div class="barWrap">
-	  <h3>Element-ui 样式自定义（覆盖）</h3>
+	  <h3 >Element-ui 样式自定义（覆盖）</h3>
 	  <div>
 		 <p class="titleMain">（一）先安装sass-loader与node-sass</p>
 		 <p class="contentBar">npm intall sass-loader --save;</p>

@@ -8,11 +8,11 @@
 			  @select="handleSelect"
 			  >
 			  <el-menu-item index="Echarts">
-				<i class="el-icon-document"></i>
+				<b class="ele-icon-thrid-wxbbaobiao"></b>
 				<span slot="title">Echarts</span>
 			  </el-menu-item>
 			  <el-menu-item index="GDMap">
-				<i class="el-icon-location"></i>
+				<b class="ele-icon-thrid-map"></b>
 				<span slot="title">高德地图</span>
 			  </el-menu-item>
 			  <el-menu-item index="mockspmile">
@@ -24,11 +24,11 @@
 				<span slot="title">自定义组件</span>
 			  </el-menu-item>
 			  <el-menu-item index="exportExcel">
-				<i class="el-icon-download"></i>
+				<b class="ele-icon-thrid-exl"></b>
 				<span slot="title">exportExcel</span>
 			  </el-menu-item>
 			  <el-menu-item index="Edit">
-				<i class="el-icon-document"></i>
+				<b class="ele-icon-thrid-text"></b>
 				<span slot="title">文本编辑器</span>
 			  </el-menu-item>
 			  <el-menu-item index="Vuexapplication">
@@ -47,11 +47,15 @@
 		  </el-aside> 		  
 		  <el-container>
 			<el-header class="headStyle">
-               Vue+Element项目实例               			   
+               Vue+Element项目实例{{$route.a}}               			   
 			</el-header>		
 			<el-main >
                 <tab-bar style="position:relative;width:100%;margin-left:-0px;background:#FFF;margin-top:2px;"></tab-bar>			
-				<router-view style="overflow-y:hidden;"></router-view>
+				<keep-alive>
+					<router-view style="overflow-y:hidden;" v-if="$route.meta.keepAlive"></router-view>
+				</keep-alive>
+				<router-view style="overflow-y:hidden;"v-if="!$route.meta.keepAlive"></router-view>
+				
 			</el-main>
 		  </el-container>
 		</el-container>    
@@ -85,7 +89,7 @@ export default {
 @import './styles/index.scss'; // 全局自定义的css样式
 *{margin:0;padding:0}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif,'sell-icon';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

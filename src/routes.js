@@ -12,52 +12,62 @@ let routes = [
     {
       path: '/',
       name: '首页',
-      component: Home
+      component: Home,
+	  meta:{keepAlive: false}
     },
     {
       path: '/Echarts',
       name: 'Echarts应用',
-      component:Echarts	  
+      component:Echarts,
+	  meta:{keepAlive: false}
     },
     {
       path: '/complexTable',
       name: 'Table操作',
       component:complexTable,
+	  meta:{keepAlive: false}
     },	
     {
       path: '/GDMap',
       name: '高德地图',
       component:GDMap,
+	  meta:{keepAlive: false}
     },
     {
       path: '/mockspmile',
       name: '数据模拟',
       component:mockspmile,
+	  meta:{keepAlive: false}
     },
 	{
 		path:'/mytransfer',
 		name:'自定义组件',
 		component:mytransfer,
+		meta:{keepAlive: false}
 	},
 	{
 		path:'/exportExcel',
 		name:'excel表格导出',
 		component:exportExcel,
+		meta:{keepAlive: false}
 	},
 	{
 		path:'/Edit',
 		name:'文本编辑器',
 		component:Edit,
+		meta:{keepAlive: false}
 	},
 	{
 		path:'/Vuexapplication',
 		name:'Vuex应用实例',
 		component:Vuexapplication,
+		meta:{keepAlive: false}
 	},
 	{
 		path:'/notes',
 		name:'学习笔记',
 		component:notes,
+		meta:{keepAlive: true},		
 	}
 	
 ];
