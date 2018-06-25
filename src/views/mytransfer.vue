@@ -15,6 +15,10 @@
 	   <self-input-number  v-model="testval" :min='1' :max='5' :width="120" @testchange="changeNumber"></self-input-number><br/><br/>
        <self-input-number  v-model="testval1" :min='2'  @testchange="changeNumber1"></self-input-number>	   
 	</div>
+	    <div class="parent1">
+           <div class="child">hello world-1</div>
+        </div>
+		<div class="classB">1111111111111111</div>
 	
   </div>
  
@@ -112,15 +116,41 @@ export default {
 　　　　　　{account: '项目组9',id:'9'},
 　　　　　　{account: '项目组10',id:'10'},
 　　　　]
-  },  
+
+
+
+
+
+
+
+
+	}, 
+ 
 }
 </script>
 <style scoped>
+        .classB{color:red};
+
+	   
+
 .indexWrap{
 	font-weight: normal;
     float:left;
     padding:20px;
     margin:0 250px;	
+}
+.parent1{
+    display: table;
+    height:300px;
+    width: 300px;
+    background-color: #FD0C70;
+}
+.parent1 .child{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
 }
 
 </style>

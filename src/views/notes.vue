@@ -50,7 +50,17 @@
 		 <p class="contentBar">$nextTick 是在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后使用 $nextTick，则可以在回调中获取更新后的 DOM</p>
          <p class="contentBar">$nextTick在change事件中应用的较多</p>		 
 	  </div>
-    </div>	  
+    </div>
+    <template v-if="testFlag">
+	  <p>ddddddddddd</p>
+	  <p>aaaaaaaaaaa</p>
+    </template>
+	<el-button @click="goMove">dd</el-button>
+	<transition name="move" >
+	  <div class="food" v-show="showFlag">
+           llllllllllllllllllll
+	  </div>
+	</transition>	
   </div>
 </template>
 
@@ -60,13 +70,18 @@ export default {
   data () {
     return {
       msg: '学习笔记',
+	  testFlag:true,
+	  showFlag:false,
     }
   },
   computed: { 
   },  
   methods: {
     getList(){
-	  	  
+       console.log(1+2+ +'4'+ +1)
+	},
+    goMove(){
+	  this.showFlag=!this.showFlag;
 	}	
   },
   mounted(){
@@ -80,4 +95,12 @@ export default {
 }
 .barWrap{width:100%;text-align:left;}
 .contentBar{text-indent:2em;}
+.food{width:300px;height:300px;background:pink;}
+.move-enter-active, .move-leave-active {
+	transition: all 1s ;
+	transform: translate3d(0, 0, 0);
+}
+.move-enter,  .move-leave {
+    transform: translate3d(700px, 0, 0);
+}
 </style>

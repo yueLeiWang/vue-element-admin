@@ -15,6 +15,7 @@ import '../static/UE/ueditor.all.min.js'
 import '../static/UE/lang/zh-cn/zh-cn.js'
 import '../static/UE/ueditor.parse.min.js'
 import './assets/icon/iconfont.css'
+
 //定义全局变量
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
@@ -60,6 +61,34 @@ Array.prototype.unique = function() {
   }
   return res
 }
+// 数组去重(重新排序)
+Array.prototype.distinct = function (){
+ var arr = this,
+  result = [];
+ arr.forEach(function(v, i ,arr){  //这里利用map，filter方法也可以实现
+  var bool = arr.indexOf(v,i+1);  //从传入参数的下一个索引值开始寻找是否存在重复
+  if(bool === -1){
+   result.push(v);
+  }
+ })
+ result.sort();
+ return result;
+};
+//对象深拷贝（应用时this.cloneObj(obj)）
+Vue.prototype.cloneObj=function (obj){
+  var str, newobj = obj.constructor === Array ? [] : {};
+  if(typeof obj !== 'object'){
+      return;
+  } else if(window.JSON){
+      str = JSON.stringify(obj), //序列化对象
+      newobj = JSON.parse(str); //还原
+  } else {//如果不支持以上方法
+      for(var i in obj){
+          newobj[i] = typeof obj[i] === 'object' ? cloneObj(obj[i]) : obj[i]; 
+      }
+  }
+  return newobj;
+};
 const router = new VueRouter({
   routes
 })
