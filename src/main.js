@@ -15,13 +15,28 @@ import '../static/UE/ueditor.all.min.js'
 import '../static/UE/lang/zh-cn/zh-cn.js'
 import '../static/UE/ueditor.parse.min.js'
 import './assets/icon/iconfont.css'
+//import AMap from 'vue-amap'
+//Vue.use(AMap)
+// 初始化vue-amap
+//AMap.initAMapApiLoader({
+// 申请的高德key
+//key: '160cab8ad6c50752175d76e61ef92c50',
+// 插件集合
+//plugin: ['AMap.Autocomplete','AMap.PlaceSearch',
+//'AMap.Scale', 'AMap.OverView',
+//'AMap.MouseTool',
+//'AMap.ToolBar', 'AMap.MapType',
+//'AMap.PolyEditor', 
+//'AMap.CircleEditor']
 
+//});
 //定义全局变量
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 Vue.prototype.Url = 'https://github.com/yueLeiWang/vue-element-admin'
 Vue.use(ElementUI)
 Vue.use(VueRouter)
+
 // 按下标删除数组的对应元素
 Array.prototype.del = function(dx) {
   if (isNaN(dx) || dx > this.length) { return false }

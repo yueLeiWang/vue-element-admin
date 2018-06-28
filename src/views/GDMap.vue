@@ -15,7 +15,11 @@
             <div style="height:25px;line-height:25px;margin-top:10px;"><span style="display:inline-block;">服务范围个数:</span><span class="overlay-number">{{number}}</span><span style="display:inline-block;margin-left:20px;color:blue;cursor:pointer;" @click="removeOverlay">全部删除</span></div>
             </div>
             <div class="bottomContent">
-              <p >请输入地址:<input class="pickerInput" ref="pickerInput"  value='' placeholder="输入关键字选取地点"></p>
+              <p >请输入地址:
+			  <input class="pickerInput" ref="pickerInput"  value='' placeholder="输入关键字选取地点">
+			  <input type="hidden" class="pickerInput" ref="pickerInput1"  value='' placeholder="请输入街道、小区、办公楼名称">
+			  </p>
+			  <div ref="panel" class="selfpanel"></div> 
               <div>
                 <el-table
                   :data="tableData"
@@ -56,6 +60,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'GDMap',
   data () {
@@ -66,25 +71,20 @@ export default {
       number: "0",
       tableData: [],
       promitInf: "",
+	  mapCenter:[116.459771, 39.922132],
       showPromit: false,	  
     }
   },
   methods: {
-        openMap(){
-			this.$nextTick(() => {
-				this.initMap1();
-			});
-	    },
 		// 地图初始化
 		initMap1() {
 		  var that = this;
 		  var id = this.$refs.gdMap;
 		  var inputname = this.$refs.pickerInput;
 		  var map = new AMap.Map(id, {
-			center: [116.459771, 39.922132],
+			center: that.mapCenter,
 			zoom: 15
 		  });
-
 		  map.plugin(["AMap.Scale"], function() {
 			var scale = new AMap.Scale();
 			map.addControl(scale);
@@ -126,40 +126,52 @@ export default {
 			var eObject = e.obj; //obj属性就是鼠标事件完成所绘制的覆盖物对象。
 			that.testalert(eObject);
 		  });
-		  AMapUI.loadUI(["misc/PoiPicker"], function(PoiPicker) {
-			var poiPicker = new PoiPicker({
-			  city: "北京",
-			  input: inputname
-			});
-			//初始化poiPicker
-			poiPickerReady(poiPicker);
-		  });
-		  function poiPickerReady(poiPicker) {
-			window.poiPicker = poiPicker;
-			var marker = new AMap.Marker();
-			var infoWindow = new AMap.InfoWindow({
-			  offset: new AMap.Pixel(0, -20)
-			});
-			//选取了某个POI
-			poiPicker.on("poiPicked", function(poiResult) {
-			  var source = poiResult.source,
-				poi = poiResult.item,
-				info = {
-				  source: source,
-				  id: poi.id,
-				  district: poi.district,
-				  name: poi.name,
-				  location: poi.location.toString(),
-				  address: poi.address
-				};
-			  inputname.value = info.district + info.name;
-			  that.inputvalue.push(info.location);
-			  marker.setMap(map);
-			  infoWindow.setMap(map);
-			  marker.setPosition(poi.location);
-			  infoWindow.setPosition(poi.location);
-			});
-		  }
+      var inputname1 = this.$refs.pickerInput1;
+      //实例化PlaceSearch
+      var placeSearch= new AMap.PlaceSearch({
+        pageSize: 50,//每页显示多少行
+        pageIndex: 1,//显示的下标从那个开始
+        //type:'商务住宅|商务办公',//类别，可以以|后面加其他类
+        city: '010', //城市
+        map: that.mymap,
+        citylimit: true,
+        renderStyle:'default',
+        panel: that.$refs.panel//服务显示的面板
+      });
+      AMap.service('AMap.PlaceSearch',function(){//回调函数 
+        placeSearch.clear();       
+        var text=that.$refs.pickerInput          
+            text.addEventListener("keyup",function(e) {
+              placeSearch.setCity('010')
+              placeSearch.search(text.value)
+              that.$refs.panel.style.display='block';
+              that.$refs.panel.style.borderRight='1px solid #ccc'
+              that.$refs.panel.style.borderBottom='1px solid #ccc'
+            });          
+      })	  
+      AMap.event.addListener(placeSearch, 'selectChanged', function(results) {
+      //获取当前选中的结果数据
+      var poi = results.selected.data;
+       that.$refs.panel.style.display='none';
+       var info = {
+        id: poi.id,
+        name: poi.name,
+        location: poi.location.toString(),
+        address: poi.address
+        };
+        that.$refs.pickerInput1.value=info.location;
+        var text=that.$refs.pickerInput
+        text.value=info.name;
+		var a=info.location.split(',')
+		var b=Number(a[0])
+		var c=Number(a[1])
+		var arr=[];
+		arr.push(b)
+		arr.push(c)
+		map.setCenter(arr)
+				
+      });	      
+
 		},
 		testalert(obj) {
 		  //获取多边形轮廓线节点数组。其中lat和lng是经纬度参数
@@ -238,11 +250,16 @@ export default {
 		}				
   },
   mounted(){
-     this.openMap()
+     this.initMap1()
   }
 }
 </script>
 <style scoped>
+.selfpanel {
+  width: 350px;
+  max-height: 290px;
+  overflow-y: auto;
+}
 .mapButton {
   width: 80px;
   height: 25px;

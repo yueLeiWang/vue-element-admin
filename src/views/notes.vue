@@ -86,6 +86,8 @@ export default {
   },
   mounted(){
     this.getList()
+	//div1.style.display =!div1.style.display || div1.style.display=='block' ? 'none':'block';
+   
   }
 }
 </script>

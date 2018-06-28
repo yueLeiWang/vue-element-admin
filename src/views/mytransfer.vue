@@ -1,6 +1,7 @@
 <template>
   <div class="indexWrap" >	
      <div>
+	   <self-down-menu :options="arrayOfObjects" :menuName="menuname" :moreText="moreText" @moreFunction="Lookmore" @updateOption="methodToRunOnSelect"></self-down-menu>
 	   <h1>简单穿棱框组件</h1><br/><br/>
 	   <my-transfer :options="options" :title='title' :showContentOne='valueType' :moveButtonStyle='buttonstlye' :ThreeShow='Threeshow' :titleOne='titleOne' :titleTwo='titleTwo' :titleThree='titleThree' @projectOneValue="getvalueOne" @projectTwoValue="getvalueTwo" @projectThreeValue="getvalueThree"></my-transfer>
 	   <h1>简单倒计时组件</h1><br/><br/>
@@ -10,15 +11,15 @@
 	   <h1>简单upload组件</h1><br/><br/>
 	   <self-upload :limit="limit"></self-upload>
 	   <h1>简单TimePicker(半点)组件</h1><br/><br/>
+	   
 	   <self-time-picker :mintime='mintime' :maxtime="maxtime" :width="navHeight" @changepicker="changepicker"></self-time-picker>
 	   <h1>简单组件self-input-number(只能输入整数)</h1><br/><br/>
 	   <self-input-number  v-model="testval" :min='1' :max='5' :width="120" @testchange="changeNumber"></self-input-number><br/><br/>
-       <self-input-number  v-model="testval1" :min='2'  @testchange="changeNumber1"></self-input-number>	   
+       <self-input-number  v-model="testval1" :min='2'  @testchange="changeNumber1"></self-input-number>
+       	   
 	</div>
-	    <div class="parent1">
-           <div class="child">hello world-1</div>
-        </div>
-		<div class="classB">1111111111111111</div>
+
+		
 	
   </div>
  
@@ -31,10 +32,20 @@ import SelfTabs from '../components/Selftabs';
 import SelfUpload from '../components/Selfupload';
 import SelfTimePicker from '../components/SelfTimePicker';
 import SelfInputNumber from '../components/selfInputNumber';
+import SelfDownMenu from '../components/selfDownMenu';
 export default {
-  components: { MyTransfer,DownTime,SelfTabs,SelfUpload,SelfTimePicker,SelfInputNumber},
+  components: { MyTransfer,DownTime,SelfTabs,SelfUpload,SelfTimePicker,SelfInputNumber,SelfDownMenu},
   data () {
     return {
+	    menuname:'公告',
+		moreText:'查看更多>>',
+		arrayOfObjects:[{
+			name:"简体中文"
+		},{
+			name:"繁體中文"
+		},{
+			name:"English"
+		}],	
 	   testval:1,
 	   testval1:1,
 	   message : '正在倒计时',
@@ -79,11 +90,15 @@ export default {
 		   border: 'none',
 		   'font-weight':'700'			    
 		},
-		valueType:'name'
+		valueType:'name',
+
 		
     }
   },
   methods: {
+    methodToRunOnSelect(val){
+	  console.log(val)
+	},
     getvalueOne(value){	   
 	   console.log('读:',value);
 	},
@@ -101,7 +116,17 @@ export default {
 	},
     changeNumber1(val){
 		console.log(val,'2')
-	}	
+	},
+	Lookmore(val){
+	     this.arrayOfObjects=this.arrayOfObjects.concat([{
+			name:"中文1"
+		},{
+			name:"中文2"
+		},{
+			name:"English1"
+		}])
+	}
+	
   },
   mounted() {
 	 this.options=[
@@ -129,28 +154,10 @@ export default {
 }
 </script>
 <style scoped>
-        .classB{color:red};
-
-	   
-
 .indexWrap{
 	font-weight: normal;
     float:left;
     padding:20px;
     margin:0 250px;	
 }
-.parent1{
-    display: table;
-    height:300px;
-    width: 300px;
-    background-color: #FD0C70;
-}
-.parent1 .child{
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    color: #fff;
-    font-size: 16px;
-}
-
 </style>
